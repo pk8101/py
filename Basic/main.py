@@ -6,3 +6,9 @@ d=a.copy()
 print(d)
 print(d.items())
 #dict are mutable
+f={2:5}
+a.update(f)
+a.pop(5)
+print(a)
+del a[1]
+print(a)
