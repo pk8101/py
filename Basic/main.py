@@ -1,10 +1,6 @@
-a=int(input())
-l=[]
-for i in range(a):
-    l.append(int(input()))
-
-a=set()
-for s in l:
-    a.add(s)
-
-print(len(l)-len(a))
+l=[1,2,3,4]
+l1=[3,4,5]
+d=l+l1
+e=l*2
+print(max(l))
+print(min(l))
