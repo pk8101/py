@@ -1,10 +1,10 @@
-#power of numbers using recursio0n
+#finding fibanachi number using recursio0n
 
-def powern(a,b):
-    if(b==1):
-        return a
-    return a*powern(a,b-1)
+def fiba(n):
+    if(n==1 or n==2):
+        return 1
+    return fiba(n-1)+fiba(n-2)
 
 a=int(input())
-b=int(input())
-print(powern(a,b))
+print(fiba(a))
+
