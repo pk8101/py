@@ -1,6 +1,8 @@
-def fac(n):
-    if n==0:
+def fact(n):
+    if n == 0:
         return 1
-    return n*fac(n-1)
+    return n * fact(n - 1)
 
-print(fac(5))
+
+a = int(input())
+print(fact(a))
