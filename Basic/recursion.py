@@ -1,11 +1,10 @@
-# sum of n natural  numbers using recursio0n
+#power of numbers using recursio0n
 
+def powern(a,b):
+    if(b==1):
+        return a
+    return a*powern(a,b-1)
 
-def sum(n):
-    if n == 1:
-        return 1
-    return n + sum(n - 1)
-
-
-a = int(input())
-print(sum(5))
+a=int(input())
+b=int(input())
+print(powern(a,b))
