@@ -1,11 +1,9 @@
-#finding fact for large number using recursio0n
-import sys
-sys.setrecursionlimit(9000)
-def fact(n):
-    if n==1:
-        return 1
-    return n*fact(n-1)
+#sum of array using recursio0n
 
+def sum1(l,s):
+    if(len(l)==s):
+        return 0
+    return l[s]+sum1(l,s+1)
 
-a=int (input())
-print(fact(a))
+a=[9,8,9]
+print(sum1(a,0))
