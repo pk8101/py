@@ -1,10 +1,11 @@
-#finding fibanachi number using recursio0n
-
-def fiba(n):
-    if(n==1 or n==2):
+#finding fact for large number using recursio0n
+import sys
+sys.setrecursionlimit(9000)
+def fact(n):
+    if n==1:
         return 1
-    return fiba(n-1)+fiba(n-2)
+    return n*fact(n-1)
 
-a=int(input())
-print(fiba(a))
 
+a=int (input())
+print(fact(a))
