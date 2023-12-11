@@ -1,9 +1,13 @@
-#sum of array using recursio0n
+#find first index in array using recursio0n
 
-def sum1(l,s):
+def firstIndex(l,s,b):
     if(len(l)==s):
-        return 0
-    return l[s]+sum1(l,s+1)
+        return -1
+    elif l[s]==b:
+        return s
+    else:
+        return firstIndex(l,s+1,b)
 
-a=[9,8,9]
-print(sum1(a,0))
+a=[9,8,87,98]
+b=999
+print(firstIndex(a,0,b))
