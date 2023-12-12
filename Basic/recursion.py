@@ -1,13 +1,16 @@
-#find first index in array using recursio0n
+#replace pi with 3.14 in array using recursio0n
 
-def firstIndex(l,s,b):
-    if(len(l)==s):
-        return -1
-    elif l[s]==b:
+def replace(s):
+    if len(s)==0 or len(s)==1:
         return s
+    if s[0]=='p' and s[1]=='i':
+        return '3.14'+replace(s[2:])
     else:
-        return firstIndex(l,s+1,b)
+        return s[0]+replace(s[1:])
+         
+    
 
-a=[9,8,87,98]
+
+a="fnvlifnpiojnvsnpi"
 b=999
-print(firstIndex(a,0,b))
+print(replace(a))
