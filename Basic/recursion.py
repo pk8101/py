@@ -1,16 +1,21 @@
-#replace pi with 3.14 in array using recursio0n
+#binary search using recursio0n
+#1.List must be sorted
+#2.we need start and end element
 
-def replace(s):
-    if len(s)==0 or len(s)==1:
-        return s
-    if s[0]=='p' and s[1]=='i':
-        return '3.14'+replace(s[2:])
-    else:
-        return s[0]+replace(s[1:])
+def binarySearch(l,x,si,ei):
+    if si>ei:
+        return -1
+    mid=(si+ei)//2
+    if(l[mid]==x):
+        return mid
+    elif l[mid]>x:
+        return binarySearch(l,x,si,mid)
+    elif l[mid]<x:
+        return binarySearch(l,x,mid+1,ei)
          
     
 
 
-a="fnvlifnpiojnvsnpi"
-b=999
-print(replace(a))
+a=[1,2,3,4,5,6,7,78,99]
+b=3
+print(binarySearch(a,b,0,len(a)-1))
