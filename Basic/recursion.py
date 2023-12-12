@@ -1,21 +1,39 @@
-#binary search using recursio0n
-#1.List must be sorted
-#2.we need start and end element
+#merge sort using recursio0n
+def merge(l1,l2,l3):
+    i=0
+    j=0
+    k=0
+    while i<len(l1) and j<len(l2):
+        if l1[i]<l2[j]:
+            l3[k]=l1[i]
+            i=i+1
+            k=k+1
+        else:
+            l3[k]=l2[j]
+            j=j+1
+            k=k+1
+    while i<len(l1):
+        l3[k]=l1[i]
+        i=i+1
+        k=k+1
+    while j<len(l2):
+        l3[k]=l2[j]
+        j=j+1
+        k=k+1
 
-def binarySearch(l,x,si,ei):
-    if si>ei:
-        return -1
-    mid=(si+ei)//2
-    if(l[mid]==x):
-        return mid
-    elif l[mid]>x:
-        return binarySearch(l,x,si,mid)
-    elif l[mid]<x:
-        return binarySearch(l,x,mid+1,ei)
-         
-    
 
 
-a=[1,2,3,4,5,6,7,78,99]
-b=3
-print(binarySearch(a,b,0,len(a)-1))
+def mergeSort(l):
+    if len(l)==0 or len(l)==1:
+        return 
+    mid=len(l)//2
+    a1=l[0:mid]
+    a2=l[mid:]
+    mergeSort(a1)
+    mergeSort(a2)
+    merge(a1,a2,l)
+
+
+a4=[98,3,4,1,7,9,2]
+mergeSort(a4)
+print(a4)
