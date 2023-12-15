@@ -1,8 +1,12 @@
+from datetime import date
 class pradeep:
-    def __init__(self,age):
-        self.age=age
-        print("hi pradeep ur age",self.age)
-
+    def __init__(self,year):
+        #self.age=age
+        self.year=year
+        #print("hi pradeep ur age",self.age)
+    @classmethod
+    def calculateage(cls,year):
+        return cls(date.today().year-year)
     @staticmethod
     def hello():
         print("hello pradeep")
