@@ -3,7 +3,7 @@ class pradeep:
     def __init__(self,year):
         #self.age=age
         self.year=year
-        #print("hi pradeep ur age",self.age)
+        print("hi pradeep ur age",self.year)
     @classmethod
     def calculateage(cls,year):
         return cls(date.today().year-year)
@@ -11,5 +11,6 @@ class pradeep:
     def hello():
         print("hello pradeep")
 
-s1=pradeep(23)
-s1.hello()
+s1=pradeep(2000)
+s1=pradeep.calculateage(2000)
+
