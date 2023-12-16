@@ -1,16 +1,10 @@
-from datetime import date
-class pradeep:
-    def __init__(self,year):
-        #self.age=age
-        self.year=year
-        print("hi pradeep ur age",self.year)
-    @classmethod
-    def calculateage(cls,year):
-        return cls(date.today().year-year)
-    @staticmethod
-    def hello():
-        print("hello pradeep")
+#fraction class
 
-s1=pradeep(2000)
-s1=pradeep.calculateage(2000)
+class Fraction:
+    def __init__(self,num=0,den=1):
+        self.num=num
+        self.den=den
+
+f=Fraction(2,3)
+print(f.__dict__)
 
