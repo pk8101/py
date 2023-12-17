@@ -1,20 +1,29 @@
-#multiple inheriting finding method resolution order
-class A:
-    def hi(self):
+#abstract class 
+# it contain abstract methods but abstract dont have class we need to call it from Module abc
+# and it contain:
+#1.ABC class and 2.abstractmethod
+
+from abc import ABC,abstractmethod
+
+class A(ABC): #ABC class inhereted
+    def __init__(self) :
         print("its class A")
-
-class B:
+        
+    @abstractmethod
     def hi(self):
-        print("its class B")
-class C(A,B):
-    def __init__(self):
-        print("its class C")
-s=C()
-s.hi()
-print(C.mro())
+        pass
+    @abstractmethod
+    def hello(self):
+        pass
 
 
+class B(A):
+    def __init__(self):    #if this init method is not implemented then class A init will be executed
+        print("hello its class B")
+    def hi(self):
+        pass
+    def hello(self):
+        pass
 
 
-
-
+s1=B()
