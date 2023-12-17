@@ -1,10 +1,18 @@
-#fraction class
+#simple inheritance 
 
-class Fraction:
-    def __init__(self,num=0,den=1):
-        self.num=num
-        self.den=den
+class A:
+    def __init__(self,name):
+        print("hello ",name)
+    def hello(self):
+        print("hello its class a")
+class B (A):
+    def __init__(self, name):
+        super().__init__(name)
+        print("its class b")
+        
+s=B('pradeep')
 
-f=Fraction(2,3)
-print(f.__dict__)
+
+
+
 
