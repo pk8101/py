@@ -1,5 +1,8 @@
-t=(1,2,3,4)
-t1=(3,4,5)
-e=t*2
-print(e)
-print(min(t))
+#error and exception handling
+a=int(input())
+b=int(input())
+try:
+    c=a//b
+
+except:
+    print("zero error")
