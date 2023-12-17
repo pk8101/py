@@ -11,3 +11,6 @@ try:
     c=a//b
 except ZeroDenError:
     print("zero error")
+
+else:  # here if no exception occur then else will be executed if except is executed then else will not be executed
+    print(c)
