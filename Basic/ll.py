@@ -21,7 +21,33 @@ def takeinput():
             tail=newNode
             
     return head
+#to find length of the linked list
+def lengthll(head):
+    count=0
+    while head is not None:
+        count=count+1
+        head=head.next
+    return count
+#to insert the value at the specific position in a linked list
+def insertatI(head,i,data):
 
+    if i<0 or i>lengthll(head):
+        return head
+
+    count=0
+    prev=None
+    curr=head
+    while i>count :
+        prev=curr
+        curr=curr.next
+        count=count+1
+    newNode=Node(data)
+    if prev is not None:
+        prev.next=newNode
+    else:
+        head=newNode
+    newNode.next=curr
+    return head
 def printll(head):
     while head is not None:
         print(str(head.data)+"->",end="")
@@ -31,4 +57,8 @@ def printll(head):
 
 
 head=takeinput()
+printll(head)
+head=insertatI(head,2,20)
+printll(head)
+head=insertatI(head,3,5)
 printll(head)
