@@ -1,3 +1,4 @@
+#optimized code for linked list to take inputs
 class Node:
     def __init__(self,data):
         self.data=data
@@ -14,13 +15,11 @@ def takeinput():
 
         if head is None:
             head=newNode
+            tail=newNode
         else:
-            currenhead=head
-            while currenhead.next is not None:
-                currenhead=currenhead.next
+            tail.next=newNode
+            tail=newNode
             
-            currenhead.next=newNode
-
     return head
 
 def printll(head):
