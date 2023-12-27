@@ -48,6 +48,20 @@ def insertatI(head,i,data):
         head=newNode
     newNode.next=curr
     return head
+#insert data recursively
+def inserdataatir(head,i,data):
+    if i<0:
+        return head
+    if i==0:
+        newNode=Node(data)
+        newNode.next=head
+        return newNode
+    if head is None:
+        return None
+    smallhead=inserdataatir(head.next,i-1,data)
+    head.next=smallhead
+
+    return head
 def printll(head):
     while head is not None:
         print(str(head.data)+"->",end="")
@@ -61,4 +75,6 @@ printll(head)
 head=insertatI(head,2,20)
 printll(head)
 head=insertatI(head,3,5)
+printll(head)
+inserdataatir(head,4,30)
 printll(head)
