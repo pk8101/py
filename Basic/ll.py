@@ -74,6 +74,15 @@ def reversel(head):
     curr.next=head
     head.next=None
     return smallHead
+# reverse of linked list using recursion (optimized using tail)
+def reverse2(head):
+    if head is None or head.next is None:
+        return head,head
+    
+    smallHead,tail=reverse2(head.next)
+    tail.next=head
+    head.next=None
+    return smallHead,head
 def printll(head):
     while head is not None:
         print(str(head.data)+"->",end="")
@@ -90,5 +99,7 @@ head=insertatI(head,3,5)
 printll(head)
 inserdataatir(head,4,30)
 printll(head)
-head=reversel(head)
+# head=reversel(head)
+# printll(head)
+head,tail=reverse2(head)
 printll(head)
