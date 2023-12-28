@@ -62,6 +62,18 @@ def inserdataatir(head,i,data):
     head.next=smallhead
 
     return head
+# reverse of linked list using recursion
+def reversel(head):
+    if head is None or head.next is None:
+        return head
+    
+    smallHead=reversel(head.next)
+    curr=smallHead
+    while curr.next is not None:
+        curr=curr.next
+    curr.next=head
+    head.next=None
+    return smallHead
 def printll(head):
     while head is not None:
         print(str(head.data)+"->",end="")
@@ -77,4 +89,6 @@ printll(head)
 head=insertatI(head,3,5)
 printll(head)
 inserdataatir(head,4,30)
+printll(head)
+head=reversel(head)
 printll(head)
