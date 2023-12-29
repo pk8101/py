@@ -83,6 +83,16 @@ def reverse2(head):
     tail.next=head
     head.next=None
     return smallHead,head
+#optimized reversal of linked list
+def reverse3(head):
+    if head is None or head.next is None:
+        return head
+    smallHead=reverse3(head.next)
+    tail=head.next
+    tail.next=head
+    head.next=None
+    return smallHead
+
 def printll(head):
     while head is not None:
         print(str(head.data)+"->",end="")
@@ -102,4 +112,6 @@ printll(head)
 # head=reversel(head)
 # printll(head)
 head,tail=reverse2(head)
+printll(head)
+head=reverse3(head)
 printll(head)
