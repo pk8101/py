@@ -1,31 +1,27 @@
-class Stack:
-    def __init__(self):
-        self.__data=[]
-    def push(self,item):
-        self.__data.append(item)
+#balance parenthesis problem
+def isBalance(string):
+    s=[]
+    for char in string:
+        if char in '({[':
+            s.append(char)
+        elif char in ')':
+            if not s or s[-1]!='(':
+                return False
+            s.pop()
 
-    def pop(self):
-        if self.isEmpty():
-            print("stack is empty")
-        return self.__data.pop()
-    def top(self):
-        if self.isEmpty():
-            print("stack is empty!!")
-        return self.__data[len(self.__data)-1]
+        elif char in '}':
+            if not s or s[-1]!='{':
+                return False
+            s.pop()
 
-    def size(self):
-        return len(self.__data)
-    def isEmpty(self):
-        return self.size()==0
+        elif char in ']':
+            if not s or s[-1]!='[':
+                return False
+            s.pop()
+    if not s:
+        return True
+    return False
 
-
-
-s=Stack()
-s.push(10)
-s.push(11)
-s.push(12)
-s.push(13)
-s.push(14)
-
-while s.isEmpty() is False:
-    print(s.pop())
+stri=input()
+ans=isBalance(stri)
+print(ans)
