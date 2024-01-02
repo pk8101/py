@@ -1,27 +1,23 @@
-#balance parenthesis problem
-def isBalance(string):
-    s=[]
-    for char in string:
-        if char in '({[':
-            s.append(char)
-        elif char in ')':
-            if not s or s[-1]!='(':
-                return False
-            s.pop()
+#reverse stack problem
+def reverseStack(s1,s2):
+    if (len(s1)<=1):
+        return
+    while (len(s1) !=1):
+        ele=s1.pop()
+        s2.append(ele)
+    lastele=s1.pop()
+    while (len(s2) !=0):
+        ele=s2.pop()
+        s1.append(ele)
 
-        elif char in '}':
-            if not s or s[-1]!='{':
-                return False
-            s.pop()
+    reverseStack(s1,s2)
+    s1.append(lastele)
 
-        elif char in ']':
-            if not s or s[-1]!='[':
-                return False
-            s.pop()
-    if not s:
-        return True
-    return False
-
-stri=input()
-ans=isBalance(stri)
-print(ans)
+from sys import setrecursionlimit
+setrecursionlimit(11000)
+n=int(input())
+s1=[int(ele) for ele in input().split()]
+s2=[]
+reverseStack(s1,s2)
+while(len(s1)!=0):
+    print(s1.pop(),end=" ")
