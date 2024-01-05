@@ -1,38 +1,34 @@
-#inbulit stack
-# we can use stack in two ways 1.List itself used as a stack
-# 2.in queue there is a class that follow Lifo order class_name-->(LifoQueue())
+#implement queue using two stacks
+class Queue:
+    def __init__(self):
+        self.__s1=[]
+        self.__s2=[]
+    def enqueue(self,data):
+        while len(self.__s1)!=0:
+            self.__s2.append(self.__s1.pop())
+        self.__s1.append(data)
+        while len(self.__s2)!=0:
+            self.__s1.append(self.__s2.pop())
+        return 
+    def dequeue(self):
+        if len(self.__s1)==0:
+            return -1
+        return self.__s1.pop()
+    def front(self):
+        if len(self.__s1)==0:
+            return -1
+        return self.__s1[-1]
+    def size(self):
+        return len(self.__s1)
+    def isEmpty(self):
+        return self.size()==0
 
-# way -->1: List
-stack=[]
-stack.append(1)
-stack.append(2)
-stack.append(3)
-stack.append(4)
-stack.pop()
-stack.pop()
-stack.pop()
-print(stack)
+q=Queue()
+q.enqueue(1)
+q.enqueue(2)
+q.enqueue(3)
+q.enqueue(4)
 
-# way-->2: using class in queue
-#the below code is getting error but we should implemet the inbulit stack like this only
-
-
-# import queue
-# q=queue.LifoQueue
-# q.put(1)
-# q.put(2)
-# q.put(3)
-
-# while not q.empty():
-#     print(q.get())
-
-
-#inbulit queue implemented
-# import queue
-# q=queue.Queue()
-# q.put(1)
-# q.put(2)
-# q.put(3)
-
-# while not q.empty():
-#     print(q.get())
+while q.isEmpty() is False:
+    print(q.front())
+    q.dequeue()
