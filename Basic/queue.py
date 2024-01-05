@@ -1,52 +1,27 @@
-#implementing queue using linked list
-class Node:
-    def __init__(self,data):
-        self.data=data
-        self.next=None
+#inbulit stack
+# we can use stack in two ways 1.List itself used as a stack
+# 2.in queue there is a class that follow Lifo order class_name-->(LifoQueue())
 
-class Queue:
-    def __init__(self):
-        self.__head=None
-        self.__tail=None
-        self.__count=0
-    def enqueue(self,ele):
-        newNode=Node(ele)
-        if self.__head is None:
-            self.__head=newNode
-        else:
-            self.__tail.next=newNode
-        self.__tail=newNode
-        self.__count+=1
+# way -->1: List
+stack=[]
+stack.append(1)
+stack.append(2)
+stack.append(3)
+stack.append(4)
+stack.pop()
+stack.pop()
+stack.pop()
+print(stack)
 
-    def dequeue(self):
-        if self.__head is None:
-            print("heyy!! , queue is empty")
-            return
-        else:
-            data1=self.__head.data
-            self.__head=self.__head.next
-            self.__count-=1
-            return data1
-    def front(self):
-        if self.__head is None:
-            print("hey queue is empty")
-        else:
-            return self.__head.data
-    def size(self):
-        return self.__count
-    def isempty(self):
-        return self.size()==0
+# way-->2: using class in queue
+#the below code is getting error but we should implemet the inbulit stack like this only
 
 
-q=Queue()
-q.enqueue(1) 
-q.enqueue(2) 
-q.enqueue(3)    
-q.enqueue(4) 
+# import queue
+# q=queue.LifoQueue
+# q.put(1)
+# q.put(2)
+# q.put(3)
 
-
-while q.isempty() is False:
-    print(q.front())
-    q.dequeue()
-
-q.front()
+# while not q.empty():
+#     print(q.get())
