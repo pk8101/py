@@ -8,10 +8,18 @@ class BinaryTreeNode:
         self.data=data
         self.left=None
         self.right=None
-
+def printTree(root):
+    if root==None:
+        return
+    print(root.data)
+    printTree(root.left)
+    printTree(root.right)
 btn1=BinaryTreeNode(1) #root node
 btn2=BinaryTreeNode(2) #left node
 btn3=BinaryTreeNode(3) #right node
 
 btn1.left=btn2
 btn1.right=btn3
+
+
+printTree(btn1)
