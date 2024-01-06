@@ -38,7 +38,15 @@ def takeinput():
     root.right=rightTree
     return root
 
+def numNodes(root):
+    if root==None:
+        return 0
+    leftCount=numNodes(root.left)
+    rightCount=numNodes(root.right)
+    return 1+leftCount+rightCount
+
 root=takeinput()
 printTree(root)
 print()
 printTreeDetailed(root)
+print(numNodes(root))
