@@ -26,14 +26,19 @@ def printTreeDetailed(root):
     print()
     printTreeDetailed(root.left)
     printTreeDetailed(root.right)
-btn1=BinaryTreeNode(1) #root node
-btn2=BinaryTreeNode(2) #left node
-btn3=BinaryTreeNode(3) #right node
 
-btn1.left=btn2
-btn1.right=btn3
+def takeinput():
+    rootData=int(input())
+    if rootData==-1:
+        return None
+    root=BinaryTreeNode(rootData)
+    leftTree=takeinput()
+    rightTree=takeinput()
+    root.left=leftTree
+    root.right=rightTree
+    return root
 
-
-printTree(btn1)
+root=takeinput()
+printTree(root)
 print()
-printTreeDetailed(btn1)
+printTreeDetailed(root)
