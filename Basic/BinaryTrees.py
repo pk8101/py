@@ -45,8 +45,16 @@ def numNodes(root):
     rightCount=numNodes(root.right)
     return 1+leftCount+rightCount
 
+def largeNode(root):
+    if root == None:
+        return -1
+    leftLarge=largeNode(root.left)
+    rightLarge=largeNode(root.right)
+    largest=max(leftLarge,rightLarge,root.data)
+    return largest
 root=takeinput()
 printTree(root)
 print()
 printTreeDetailed(root)
 print(numNodes(root))
+print(largeNode(root))
