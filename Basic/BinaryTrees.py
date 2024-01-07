@@ -52,9 +52,19 @@ def largeNode(root):
     rightLarge=largeNode(root.right)
     largest=max(leftLarge,rightLarge,root.data)
     return largest
+def noOfLeafNodes(root):
+    if root==None:
+        return 0
+    if root.left==None and root.right==None:
+        return 1
+    noOfLeftNode=noOfLeafNodes(root.left)
+    noOfRightNode=noOfLeafNodes(root.right)
+    return noOfLeftNode+noOfRightNode
+
 root=takeinput()
 printTree(root)
 print()
 printTreeDetailed(root)
 print(numNodes(root))
 print(largeNode(root))
+print(noOfLeafNodes(root))
