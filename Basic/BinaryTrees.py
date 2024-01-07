@@ -60,11 +60,21 @@ def noOfLeafNodes(root):
     noOfLeftNode=noOfLeafNodes(root.left)
     noOfRightNode=noOfLeafNodes(root.right)
     return noOfLeftNode+noOfRightNode
+def depthOfK(root,k):
+    if root==None:
+        return 0
+    if k==0:
+        print(root.data)
+        return
+    depthOfK(root.left,k-1)
+    depthOfK(root.right,k-1)
 
 root=takeinput()
 printTree(root)
 print()
 printTreeDetailed(root)
-print(numNodes(root))
-print(largeNode(root))
-print(noOfLeafNodes(root))
+print("no of node:",numNodes(root))
+print("large node:",largeNode(root))
+print("no of leaf node:",noOfLeafNodes(root))
+print("data of kth Nodes:")
+depthOfK(root,1)
