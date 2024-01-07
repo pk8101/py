@@ -69,6 +69,15 @@ def depthOfK(root,k):
     depthOfK(root.left,k-1)
     depthOfK(root.right,k-1)
 
+def depthOfKV2(root,k,d=0):
+    if root==None:
+        return 0
+    if k==d:
+        print(root.data)
+        return
+    depthOfKV2(root.left,k,d+1)
+    depthOfKV2(root.right,k,d+1)
+
 root=takeinput()
 printTree(root)
 print()
@@ -78,3 +87,5 @@ print("large node:",largeNode(root))
 print("no of leaf node:",noOfLeafNodes(root))
 print("data of kth Nodes:")
 depthOfK(root,1)
+print("data of kth Nodes using depthOfK version -2 method:")
+depthOfKV2(root,1)
