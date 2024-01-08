@@ -78,6 +78,15 @@ def depthOfKV2(root,k,d=0):
     depthOfKV2(root.left,k,d+1)
     depthOfKV2(root.right,k,d+1)
 
+def removeLeaf(root):
+    if root==None:
+        return None
+    if root.left==None and root.right==None:
+        return None
+    root.left=removeLeaf(root.left)
+    root.right=removeLeaf(root.right)
+    return root
+
 root=takeinput()
 printTree(root)
 print()
@@ -89,3 +98,6 @@ print("data of kth Nodes:")
 depthOfK(root,1)
 print("data of kth Nodes using depthOfK version -2 method:")
 depthOfKV2(root,1)
+print("Tree after removing leaf Nodes:")
+root=removeLeaf(root)
+printTreeDetailed(root)
