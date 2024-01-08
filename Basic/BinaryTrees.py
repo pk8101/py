@@ -87,6 +87,27 @@ def removeLeaf(root):
     root.right=removeLeaf(root.right)
     return root
 
+#balance of the tree is true or false
+def height(root):
+    if root==None:
+        return 0
+    return 1+max(height(root.left),height(root.right))
+def isBalanced(root):
+    if root==None:
+        return True
+    lh=height(root.left)
+    rh=height(root.right)
+    if lh-rh>1 or rh-lh>1:
+        return False
+    leftBalance=isBalanced(root.left)
+    rightBalance=isBalanced(root.right)
+    if leftBalance and rightBalance:
+        return True
+    else:
+        return False
+
+
+
 root=takeinput()
 printTree(root)
 print()
@@ -101,3 +122,5 @@ depthOfKV2(root,1)
 print("Tree after removing leaf Nodes:")
 root=removeLeaf(root)
 printTreeDetailed(root)
+
+print(isBalanced(root))
