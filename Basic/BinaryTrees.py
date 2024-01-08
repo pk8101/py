@@ -106,7 +106,19 @@ def isBalanced(root):
     else:
         return False
 
-
+#improved balancing tree
+def heightandisBalanced(root):
+    if root==None:
+        return 0,True
+    lh,leftBalance=heightandisBalanced(root.left)
+    rh,rightBalance=heightandisBalanced(root.right)
+    h=1+max(lh,rh)
+    if lh-rh>1 or rh-lh>1:
+        return h,False
+    if leftBalance and rightBalance:
+        return h,True
+    else:
+        return h,False
 
 root=takeinput()
 printTree(root)
@@ -124,3 +136,4 @@ root=removeLeaf(root)
 printTreeDetailed(root)
 
 print(isBalanced(root))
+print(heightandisBalanced(root))
