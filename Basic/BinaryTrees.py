@@ -106,7 +106,7 @@ def isBalanced(root):
     else:
         return False
 
-#improved balancing tree
+#improved height and balancing tree
 def heightandisBalanced(root):
     if root==None:
         return 0,True
@@ -119,7 +119,10 @@ def heightandisBalanced(root):
         return h,True
     else:
         return h,False
-
+#improved balancing Tree
+def isBalanced2(root):
+    h,isrootBalanced=heightandisBalanced(root)
+    return isrootBalanced
 root=takeinput()
 printTree(root)
 print()
@@ -137,3 +140,4 @@ printTreeDetailed(root)
 
 print(isBalanced(root))
 print(heightandisBalanced(root))
+print(isBalanced2(root))
