@@ -2,140 +2,191 @@
 # start node cosider as root node it contains left ,right reference for the child nodes
 # trees does not contain an cycles
 
+
 # implementing basic binary tree
 class BinaryTreeNode:
-    def __init__(self,data):
-        self.data=data
-        self.left=None
-        self.right=None
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
 def printTree(root):
-    if root==None:
+    if root == None:
         return
     print(root.data)
     printTree(root.left)
     printTree(root.right)
 
+
 def printTreeDetailed(root):
-    if root== None:
+    if root == None:
         return
-    print(root.data,end=":")
+    print(root.data, end=":")
     if root.left != None:
-        print("L",root.left.data,end=",")
+        print("L", root.left.data, end=",")
     if root.right != None:
-        print("R",root.right.data,end="")
+        print("R", root.right.data, end="")
     print()
     printTreeDetailed(root.left)
     printTreeDetailed(root.right)
 
+
 def takeinput():
-    rootData=int(input())
-    if rootData==-1:
+    rootData = int(input())
+    if rootData == -1:
         return None
-    root=BinaryTreeNode(rootData)
-    leftTree=takeinput()
-    rightTree=takeinput()
-    root.left=leftTree
-    root.right=rightTree
+    root = BinaryTreeNode(rootData)
+    leftTree = takeinput()
+    rightTree = takeinput()
+    root.left = leftTree
+    root.right = rightTree
     return root
 
+
 def numNodes(root):
-    if root==None:
+    if root == None:
         return 0
-    leftCount=numNodes(root.left)
-    rightCount=numNodes(root.right)
-    return 1+leftCount+rightCount
+    leftCount = numNodes(root.left)
+    rightCount = numNodes(root.right)
+    return 1 + leftCount + rightCount
+
 
 def largeNode(root):
     if root == None:
         return -1
-    leftLarge=largeNode(root.left)
-    rightLarge=largeNode(root.right)
-    largest=max(leftLarge,rightLarge,root.data)
+    leftLarge = largeNode(root.left)
+    rightLarge = largeNode(root.right)
+    largest = max(leftLarge, rightLarge, root.data)
     return largest
-def noOfLeafNodes(root):
-    if root==None:
-        return 0
-    if root.left==None and root.right==None:
-        return 1
-    noOfLeftNode=noOfLeafNodes(root.left)
-    noOfRightNode=noOfLeafNodes(root.right)
-    return noOfLeftNode+noOfRightNode
-def depthOfK(root,k):
-    if root==None:
-        return 0
-    if k==0:
-        print(root.data)
-        return
-    depthOfK(root.left,k-1)
-    depthOfK(root.right,k-1)
 
-def depthOfKV2(root,k,d=0):
-    if root==None:
+
+def noOfLeafNodes(root):
+    if root == None:
         return 0
-    if k==d:
+    if root.left == None and root.right == None:
+        return 1
+    noOfLeftNode = noOfLeafNodes(root.left)
+    noOfRightNode = noOfLeafNodes(root.right)
+    return noOfLeftNode + noOfRightNode
+
+
+def depthOfK(root, k):
+    if root == None:
+        return 0
+    if k == 0:
         print(root.data)
         return
-    depthOfKV2(root.left,k,d+1)
-    depthOfKV2(root.right,k,d+1)
+    depthOfK(root.left, k - 1)
+    depthOfK(root.right, k - 1)
+
+
+def depthOfKV2(root, k, d=0):
+    if root == None:
+        return 0
+    if k == d:
+        print(root.data)
+        return
+    depthOfKV2(root.left, k, d + 1)
+    depthOfKV2(root.right, k, d + 1)
+
 
 def removeLeaf(root):
-    if root==None:
+    if root == None:
         return None
-    if root.left==None and root.right==None:
+    if root.left == None and root.right == None:
         return None
-    root.left=removeLeaf(root.left)
-    root.right=removeLeaf(root.right)
+    root.left = removeLeaf(root.left)
+    root.right = removeLeaf(root.right)
     return root
 
-#balance of the tree is true or false
+
+# balance of the tree is true or false
 def height(root):
-    if root==None:
+    if root == None:
         return 0
-    return 1+max(height(root.left),height(root.right))
+    return 1 + max(height(root.left), height(root.right))
+
+
 def isBalanced(root):
-    if root==None:
+    if root == None:
         return True
-    lh=height(root.left)
-    rh=height(root.right)
-    if lh-rh>1 or rh-lh>1:
+    lh = height(root.left)
+    rh = height(root.right)
+    if lh - rh > 1 or rh - lh > 1:
         return False
-    leftBalance=isBalanced(root.left)
-    rightBalance=isBalanced(root.right)
+    leftBalance = isBalanced(root.left)
+    rightBalance = isBalanced(root.right)
     if leftBalance and rightBalance:
         return True
     else:
         return False
 
-#improved height and balancing tree
+
+# improved height and balancing tree
 def heightandisBalanced(root):
-    if root==None:
-        return 0,True
-    lh,leftBalance=heightandisBalanced(root.left)
-    rh,rightBalance=heightandisBalanced(root.right)
-    h=1+max(lh,rh)
-    if lh-rh>1 or rh-lh>1:
-        return h,False
+    if root == None:
+        return 0, True
+    lh, leftBalance = heightandisBalanced(root.left)
+    rh, rightBalance = heightandisBalanced(root.right)
+    h = 1 + max(lh, rh)
+    if lh - rh > 1 or rh - lh > 1:
+        return h, False
     if leftBalance and rightBalance:
-        return h,True
+        return h, True
     else:
-        return h,False
-#improved balancing Tree
+        return h, False
+
+
+# improved balancing Tree
 def isBalanced2(root):
-    h,isrootBalanced=heightandisBalanced(root)
+    h, isrootBalanced = heightandisBalanced(root)
     return isrootBalanced
-root=takeinput()
+#taking levelwise input
+# def takeLevel():
+#     q=queue.Queue()
+#     print("enter root value:")
+#     value1=int(input())
+#     if value1==-1:
+#         return None
+#     root=BinaryTreeNode(value1)
+#     q.put(root)
+#     while not (q.empty()):
+#         current_node=q.get()
+#         print("enter left of" ,current_node)
+#         leftdata=int(input())
+#         if leftdata!=-1:
+#             current_root=BinaryTreeNode(leftdata)
+#             current_node.left=current_root
+#             q.put(current_root)
+#         print("enter right of" ,current_node)
+#         rightdata=int(input())
+#         if rightdata!=-1:
+#             current_root1=BinaryTreeNode(rightdata)
+#             current_node.right=current_root1
+#             q.put(current_root1)
+
+
+
+#     return root
+
+# takeLevel()
+
+
+
+root = takeinput()
 printTree(root)
 print()
 printTreeDetailed(root)
-print("no of node:",numNodes(root))
-print("large node:",largeNode(root))
-print("no of leaf node:",noOfLeafNodes(root))
+print("no of node:", numNodes(root))
+print("large node:", largeNode(root))
+print("no of leaf node:", noOfLeafNodes(root))
 print("data of kth Nodes:")
-depthOfK(root,1)
+depthOfK(root, 1)
 print("data of kth Nodes using depthOfK version -2 method:")
-depthOfKV2(root,1)
+depthOfKV2(root, 1)
 print("Tree after removing leaf Nodes:")
-root=removeLeaf(root)
+root = removeLeaf(root)
 printTreeDetailed(root)
 
 print(isBalanced(root))
