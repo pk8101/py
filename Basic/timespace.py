@@ -1,0 +1,1 @@
+# O(n)->it gives worst case for given problem
